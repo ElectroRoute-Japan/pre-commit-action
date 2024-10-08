@@ -1,6 +1,10 @@
 name: pre-commit
 description: run pre-commit
 inputs:
+  version:
+    description: pre-commit version
+    required: false
+    default: ''
   extra_args:
     description: options to pass to pre-commit run
     required: false
@@ -8,7 +12,13 @@ inputs:
 runs:
   using: composite
   steps:
-  - run: python -m pip install pre-commit
+  - name: Install pre-commit (latest)
+    if: ${{ inputs.version == '' }}
+    run: python -m pip install pre-commit
+    shell: bash
+  - name: Install pre-commit ${{ inputs.version }}
+    if: ${{ inputs.version != '' }}
+    run: python -m pip install pre-commit==${{ inputs.version }}
     shell: bash
   - run: python -m pip freeze --local
     shell: bash
