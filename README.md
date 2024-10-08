@@ -1,15 +1,9 @@
-this action is in maintenance-only mode and will not be accepting new features.
-
-generally you want to use [pre-commit.ci] which is faster and has more features.
-
-[pre-commit.ci]: https://pre-commit.ci
-
-___
+This action has been cloned from [![pre-commit](https://github.com/pre-commit/action)](https://github.com/pre-commit/action) to ensure we have the functionality as we need it.
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/pre-commit/action/main.svg)](https://results.pre-commit.ci/latest/github/pre-commit/action/main)
-[![Build Status](https://github.com/pre-commit/action/actions/workflows/main.yml/badge.svg)](https://github.com/pre-commit/action/actions)
+[![Build Status](https://github.com/ElectroRoute-Japan/pre-commit-action/actions/workflows/main.yml/badge.svg)](https://github.com/pre-commit/action/actions)
 
-pre-commit/action
+ElectroRoute-Japan/pre-commit-action
 =================
 
 a GitHub action to run [pre-commit](https://pre-commit.com)
@@ -33,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
-    - uses: pre-commit/action@v3.0.1
+    - uses: ElectroRoute-Japan/pre-commit-action@v1.0.0
 ```
 
 This does a few things:
@@ -51,7 +45,7 @@ Here's a sample step configuration that only runs the `flake8` hook against all
 the files (use the template above except for the `pre-commit` action):
 
 ```yaml
-    - uses: pre-commit/action@v3.0.1
+    - uses: ElectroRoute-Japan/pre-commit-action@v1.0.0
       with:
         extra_args: flake8 --all-files
 ```
